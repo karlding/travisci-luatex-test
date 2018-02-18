@@ -1,0 +1,24 @@
+sudo: required
+
+addons:
+  apt:
+    packages:
+      - etoolbox
+      - texlive-bibtex-extra
+      - texlive-latex-base
+      - texlive-luatex
+      - texlive-latex-recommended
+      - texlive-science
+      - texlive-xetex
+      - fonts-lmodern
+
+before_script:
+  - mkdir -p ~/.fonts
+  - cp fonts/Avenir/*.otf ~/.fonts
+  - sudo fc-cache -f -v
+
+  # microsoft fonts
+  - echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+  - sudo apt-get install ttf-mscorefonts-installer
+script:
+  - lualatex main

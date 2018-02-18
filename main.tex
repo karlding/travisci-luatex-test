@@ -1,0 +1,155 @@
+% LuaLaTeX
+\documentclass[10pt]{article}
+
+% Packages
+\usepackage[no-math]{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage[backend=biber]{biblatex} % we use the biber implementation of biblatex for bibliographies
+% \usepackage[nonumberlist, toc]{glossaries}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{siunitx}
+
+% Formatting
+\geometry{letterpaper, portrait, margin=.85in}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[
+    BoldFont       = Avenir Medium,
+    ItalicFont     = Avenir Book Oblique,
+    BoldItalicFont = Avenir Medium Oblique
+]{Avenir Book}
+\setmonofont{Andale Mono}
+\sisetup{detect-all} % used by siunitx to always typeset units in the font of the current environment
+\urlstyle{same}
+
+\newcommand\theteamname{ACME Airlines} % should not change normally
+\newcommand\theuniversityname{ACME Red} % should also not change normally
+\newcommand\theteamwebsite{www.example.com} % should also not normally change
+\newcommand\theteamphone{(917) 555-0197} % should also not normally change
+
+\newcommand\thetitle{Lorem ipsum dolor sit amet} % <--------------- add the title
+\newcommand\thesubtitle{Widgets} % <--------------- add a subtitle or leave the field empty
+\providecommand\theauthor{John Doe} % <--------------- add an author with contact info or comment this line
+\newcommand\theauthorcontact{john.doe@example.com} % <--------------- add author's email or leave the field empty
+\newcommand\thedate{October 15, 2017} % <--------------- update the date, use this format
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\lhead{\thetitle}
+\rhead{\theteamname}
+
+\begin{document}
+\includepdf[pages={-}]{forms/dummy.pdf}
+
+% Title Page
+\begin{titlepage}
+\large
+\vspace*{2cm}
+\centering
+\includegraphics[width=.25\textwidth]{./figures/midnightSunLogoCircle.png} \\
+\vspace{1.5cm}
+{\LARGE \theteamname} \\
+\theuniversityname \\
+\vspace{2.2cm}
+{\LARGE MSXII} \\
+\vspace{0.4cm}
+{\huge\bfseries \thetitle} \\
+\vspace{0.2cm}
+{\LARGE \thesubtitle} \\
+\vspace{2.2cm}
+\ifdefined \theauthor
+\par Prepared by: \\
+\theauthor \\
+\theauthorcontact \\
+\fi
+\thedate \\
+\vfill
+\theteamwebsite \\
+\theteamphone
+\end{titlepage}
+
+% Main Matter
+\tableofcontents
+\listoffigures % <-------------- uncomment for list of figures
+%\listoftables % <-------------- uncomment for list of tables
+
+\section{History}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fringilla urna porttitor rhoncus dolor purus non enim praesent elementum. Adipiscing diam donec adipiscing tristique risus. Nunc sed velit dignissim sodales ut eu sem. Nulla facilisi nullam vehicula ipsum. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Volutpat odio facilisis mauris sit amet massa. Nunc vel risus commodo
+viverra. Pharetra massa massa ultricies mi quis hendrerit dolor. Senectus et netus et malesuada fames ac turpis.
+
+\section{Contacts}
+Est ultricies integer quis auctor elit sed vulputate mi. Nec ullamcorper sit amet risus. Ut lectus arcu bibendum at varius vel pharetra. Suspendisse ultrices gravida dictum fusce. Aliquam sem et tortor consequat id porta nibh. Enim ut tellus elementum sagittis vitae. Ullamcorper a lacus vestibulum sed arcu. Tempor orci dapibus ultrices in. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Ut sem
+nulla pharetra diam. Aliquam eleifend mi in nulla posuere sollicitudin aliquam. Aliquam vestibulum morbi blandit cursus risus at. Faucibus et molestie ac feugiat sed lectus. Etiam sit amet nisl purus. Odio pellentesque diam volutpat commodo sed egestas. Enim diam vulputate ut pharetra sit. Lacinia at quis risus sed vulputate odio ut enim. Nullam vehicula ipsum a arcu. Hac habitasse platea dictumst quisque sagittis purus.
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{llll}
+\toprule
+Name            & Title               & Phone          & Email \\
+\midrule
+John Doe        & Widget Manager      & 604-310-1010   & john.doe@example.com \\
+Jane Doe        & Fidget Spinner Lead & 604-310-0001   & jane.doe@example.com \\
+Richard Roe     & Foobar Lead         & 1-800-273-8255 & richard.roe@example.com \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Overview}
+Etiam erat velit scelerisque in dictum non consectetur. Sed vulputate mi sit amet mauris commodo quis. Odio tempor orci dapibus ultrices in iaculis nunc. Eu turpis egestas pretium aenean pharetra. Risus nec feugiat in fermentum posuere urna nec tincidunt. Tempor commodo ullamcorper a lacus vestibulum. Bibendum neque egestas congue quisque. Pretium viverra suspendisse potenti nullam ac. Orci phasellus egestas tellus rutrum. Suspendisse interdum consectetur libero id faucibus nisl
+tincidunt eget. Neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Malesuada fames ac turpis egestas integer eget aliquet.
+
+Tortor pretium viverra suspendisse potenti. Ut venenatis tellus in metus vulputate. Etiam non quam lacus suspendisse faucibus interdum posuere lorem ipsum. Arcu non odio euismod lacinia at quis. Nunc id cursus metus aliquam eleifend mi. Rhoncus dolor purus non enim praesent elementum. Accumsan sit amet nulla facilisi morbi tempus. Dis parturient montes nascetur ridiculus mus mauris vitae. Adipiscing bibendum est ultricies integer quis auctor. Non odio euismod lacinia at. Nec nam
+aliquam sem et tortor. Felis donec et odio pellentesque diam volutpat commodo. A iaculis at erat pellentesque. Hac habitasse platea dictumst quisque. Scelerisque in dictum non consectetur a erat nam at lectus. Gravida quis blandit turpis cursus in hac. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci. Luctus venenatis lectus magna fringilla urna porttitor.
+
+Eget est lorem ipsum dolor sit amet consectetur. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Amet nulla facilisi morbi tempus iaculis urna id. Augue interdum velit euismod in pellentesque massa placerat. Dolor sit amet consectetur adipiscing elit ut aliquam. Vivamus at augue eget arcu. Erat pellentesque adipiscing commodo elit at imperdiet. Felis imperdiet proin fermentum leo vel orci. Cum sociis
+natoque penatibus et magnis dis parturient montes. Tristique senectus et netus et. Dui id ornare arcu odio ut sem nulla.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{figures/msxii-electrical-full-block-diagram}
+\caption{Block diagram of all electrical systems}
+\label{fig:msxii-electrical-full-block-diagram}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{figures/msxii-electrical-hv-block-diagram}
+\caption{Block diagram of all high-voltage electrical systems}
+\label{fig:msxii-electrical-hv-block-diagram}
+\end{figure}
+
+\section{Battery}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fringilla urna porttitor rhoncus dolor purus non enim praesent elementum. Adipiscing diam donec adipiscing tristique risus. Nunc sed velit dignissim sodales ut eu sem. Nulla facilisi nullam vehicula ipsum. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Volutpat odio facilisis mauris sit amet massa. Nunc vel risus commodo
+viverra. Pharetra massa massa ultricies mi quis hendrerit dolor. Senectus et netus et malesuada fames ac turpis.
+
+\section{Testing Methodology}
+Est ultricies integer quis auctor elit sed vulputate mi. Nec ullamcorper sit amet risus. Ut lectus arcu bibendum at varius vel pharetra. Suspendisse ultrices gravida dictum fusce. Aliquam sem et tortor consequat id porta nibh. Enim ut tellus elementum sagittis vitae. Ullamcorper a lacus vestibulum sed arcu. Tempor orci dapibus ultrices in. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Ut sem
+nulla pharetra diam. Aliquam eleifend mi in nulla posuere sollicitudin aliquam. Aliquam vestibulum morbi blandit cursus risus at. Faucibus et molestie ac feugiat sed lectus. Etiam sit amet nisl purus. Odio pellentesque diam volutpat commodo sed egestas. Enim diam vulputate ut pharetra sit. Lacinia at quis risus sed vulputate odio ut enim. Nullam vehicula ipsum a arcu. Hac habitasse platea dictumst quisque sagittis purus.
+
+\subsection{Phase One}
+Etiam erat velit scelerisque in dictum non consectetur. Sed vulputate mi sit amet mauris commodo quis. Odio tempor orci dapibus ultrices in iaculis nunc. Eu turpis egestas pretium aenean pharetra. Risus nec feugiat in fermentum posuere urna nec tincidunt. Tempor commodo ullamcorper a lacus vestibulum. Bibendum neque egestas congue quisque. Pretium viverra suspendisse potenti nullam ac. Orci phasellus egestas tellus rutrum. Suspendisse interdum consectetur libero id faucibus nisl
+tincidunt eget. Neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Malesuada fames ac turpis egestas integer eget aliquet.
+
+\subsection{Phase Two}
+Tortor pretium viverra suspendisse potenti. Ut venenatis tellus in metus vulputate. Etiam non quam lacus suspendisse faucibus interdum posuere lorem ipsum. Arcu non odio euismod lacinia at quis. Nunc id cursus metus aliquam eleifend mi. Rhoncus dolor purus non enim praesent elementum. Accumsan sit amet nulla facilisi morbi tempus. Dis parturient montes nascetur ridiculus mus mauris vitae. Adipiscing bibendum est ultricies integer quis auctor. Non odio euismod lacinia at. Nec nam
+aliquam sem et tortor. Felis donec et odio pellentesque diam volutpat commodo. A iaculis at erat pellentesque. Hac habitasse platea dictumst quisque. Scelerisque in dictum non consectetur a erat nam at lectus. Gravida quis blandit turpis cursus in hac. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci. Luctus venenatis lectus magna fringilla urna porttitor.
+
+\subsection{Phase Three}
+Eget est lorem ipsum dolor sit amet consectetur. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Amet nulla facilisi morbi tempus iaculis urna id. Augue interdum velit euismod in pellentesque massa placerat. Dolor sit amet consectetur adipiscing elit ut aliquam. Vivamus at augue eget arcu. Erat pellentesque adipiscing commodo elit at imperdiet. Felis imperdiet proin fermentum leo vel orci. Cum sociis
+natoque penatibus et magnis dis parturient montes. Tristique senectus et netus et. Dui id ornare arcu odio ut sem nulla.
+
+% Bibliography
+%\pagebreak
+%\printbibliography
+
+% Appendix
+\pagebreak
+\appendix
+
+\end{document}
