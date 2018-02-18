@@ -4,13 +4,13 @@ addons:
   apt:
     packages:
       - etoolbox
+      - fonts-lmodern
       - texlive-bibtex-extra
       - texlive-latex-base
-      - texlive-luatex
       - texlive-latex-recommended
+      - texlive-luatex
       - texlive-science
       - texlive-xetex
-      - fonts-lmodern
 
 before_script:
   - mkdir -p ~/.fonts
@@ -20,5 +20,17 @@ before_script:
   # microsoft fonts
   - echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
   - sudo apt-get install ttf-mscorefonts-installer
+
 script:
   - lualatex main
+
+deploy:
+  provider: releases
+  api_key:
+    secure: mloQ/bdwpba5lNFCmmW3AtmpUUrMjb3HFsz0e28Uzz0WCUiuKYqd0Y1vzpckJgSnDMyfUpLReQ1srkvdXicwsQiS1BNRllO3XdZfqqXgq6EDRLiGvWovmDFIhaJbpHgx6/a7gOewuAV1DvtjpZDVKS7Xlj4EvBqhH9K+MWTe7SC6EKA0PUbiiRaYBTJeAqf8xGpkZLqZGguYIsIISWa+8IuTik9nLUYZlnOOs3V6ITrpW72hkyrYtYYsl0GBDiAG/NLHO9wdPnd2WBsdFOds947XqZi2xT4ziWkjih0/gC6TjKWZxuCw1Sy0d47jjW0k5MTFIoYac5F30Y+L1PnEHq1CUpiFgKxX1PEGwtDkItq8ZQ7zhWeYb5cV6Qoq/1rWhCaO3NmY8KYLmjR6GhKJUD2m7bs0hzNRygRNijfEXBAYtOGp9H9hlcxyUrZk+S1Q24zgszJTD3eNPOVdCyMq4GYeU/TXP9j25y35vD4CXwIf+lFepzgZuirSs2o+PhummgWDqrmXsn3b1j3DgRZLTa22+jdZHhcEuJj1/5sZFTYzA1qJknmGFaD8R8DynUNMrQVXXbSq9xcG7yYtJEMXDH0db+xjVzwFXpVnCb8Zn8sD+k+ga1p7Y+fXkNx+OcVLqxA4Pu8kaBkmUBUJTVaT7QlqlypxArO9RWokCuMj7hU=
+  file:
+    - main.pdf
+  on:
+    repo: karlding/travisci-luatex-test
+    branch: master
+  skip_cleanup: true
